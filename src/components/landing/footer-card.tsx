@@ -1,6 +1,7 @@
 import { RightArrow } from '@/icon/icon';
 
 import Button from '../shared/button';
+import Link from 'next/link';
 
 const FooterCard = () => {
   return (
@@ -16,12 +17,14 @@ const FooterCard = () => {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:gap-4 justify-between sm:h-full item-start sm:items-end">
+            <Link href="/enquiry">
           <Button
             className="bg-primary-blue-500! text-primary-green-500"
             suffix={<RightArrow />}
           >
             Book a demo
           </Button>
+            </Link>
           <span className="italic text-secondary-blue-900 text-[11px] leading-[109%]">
             *T&C applied*
           </span>
