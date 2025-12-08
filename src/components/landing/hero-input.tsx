@@ -16,6 +16,7 @@ interface InputProps {
   className?: string;
   suffixIcon?: React.ReactNode;
   onSuffixClick?: () => void;
+  mode?: 'light' | 'dark';
 }
 
 const HeroInput: React.FC<InputProps> = ({
@@ -29,6 +30,7 @@ const HeroInput: React.FC<InputProps> = ({
   className = '',
   suffixIcon,
   onSuffixClick,
+  mode = 'light',
 }) => {
   const [email, setEmail] = useState(value || '');
 
@@ -64,9 +66,8 @@ const HeroInput: React.FC<InputProps> = ({
 
   return (
     <div
-      className={`flex items-center w-full px-2 sm:px-3 py-2 rounded-xl border border-white/24
-          focus-within:border-primary-green-500 hover:border-primary-green-500
-          focus-within:bg-[rgba(255,255,255,0.1)] transition-all duration-300 ${className}`}
+      className={`flex items-center w-full px-2 sm:px-3 py-2 rounded-xl border
+          focus-within:bg-[rgba(255,255,255,0.1)] transition-all duration-300 ${className} ${mode === 'dark' ? 'border-secondary-blue-500 focus-within:border-secondary-blue-500 hover:border-secondary-blue-500' : 'border-white/24 focus-within:border-primary-green-500 hover:border-primary-green-500'}`}
     >
       <input
         id={name}
@@ -81,10 +82,21 @@ const HeroInput: React.FC<InputProps> = ({
         onKeyDown={handleKeyDown}
         disabled={disabled}
         required={required}
-        className="w-full bg-transparent outline-none text-white text-[14px] sm:text-[16px] placeholder:text-white/60"
+        className={`w-full bg-transparent outline-none text-[14px] sm:text-[16px] ${
+          mode === 'light'
+            ? 'text-white placeholder:text-white/60'
+            : 'text-secondary-blue-500 placeholder:text-secondary-blue-500'
+        }`}
       />
 
-      {suffixIcon && <Button onClick={handleButtonClick}>Get started</Button>}
+      {suffixIcon && (
+        <Button
+          className={`${mode === 'dark' && 'bg-secondary-blue-800 text-primary-green-600 hover:bg-secondary-blue-800'}`}
+          onClick={handleButtonClick}
+        >
+          Get started
+        </Button>
+      )}
     </div>
   );
 };

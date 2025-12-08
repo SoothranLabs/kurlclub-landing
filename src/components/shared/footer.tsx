@@ -75,7 +75,7 @@ const Footer = () => {
           <div className="flex flex-col gap-5 sm:gap-6">
             {[
               { label: 'FAQ', href: '#faq' },
-              { label: 'Careers', href: '#' },
+              { label: 'Careers', href: '/careers' },
               { label: 'Legal policy', href: '#' },
               { label: 'Get a demo', href: '/enquiry' },
             ].map(({ label, href }, i) => (
@@ -99,7 +99,7 @@ const Footer = () => {
           Product of India
         </span>
         <span className="text-[16px] leading-[109%] text-secondary-blue-100 sm:text-end">
-          © kurltech systems Pvt Ltd {new Date().getFullYear()}
+          © Kurltech systems Pvt Ltd {new Date().getFullYear()}
         </span>
       </footer>
     </div>
