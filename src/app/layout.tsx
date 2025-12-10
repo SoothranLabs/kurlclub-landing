@@ -3,6 +3,7 @@ import { Figtree } from 'next/font/google';
 
 import AppLayout from './app-layout';
 import './globals.css';
+import Script from 'next/script';
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -95,74 +96,31 @@ export default function RootLayout({
 
         <meta name="theme-color" content="#D3F702" />
         <meta name="format-detection" content="telephone=no" />
-        <script
-          type="application/ld+json"
+
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-NKR6LT05KK"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NKR6LT05KK');
+  `}
+</Script>
+<Script
+          id="gtm-script"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                '@context': 'https://schema.org',
-                '@type': 'SoftwareApplication',
-                name: 'KurlClub',
-                description:
-                  'Gym management software for fitness studios, gyms, yoga studios, dance classes and martial arts centers in India and GCC',
-                url: 'https://kurlclub.com',
-                applicationCategory: 'BusinessApplication',
-                operatingSystem: 'Web, iOS, Android',
-                offers: {
-                  '@type': 'Offer',
-                  price: '0',
-                  priceCurrency: 'INR',
-                  description: 'Free demo available',
-                },
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'Organization',
-                name: 'KurlClub',
-                url: 'https://kurlclub.com',
-                description:
-                  'Leading gym management software provider for India and GCC markets',
-                areaServed: [
-                  'India',
-                  'UAE',
-                  'Saudi Arabia',
-                  'Qatar',
-                  'Oman',
-                  'Bahrain',
-                  'Kuwait',
-                ],
-                serviceType: 'Gym Management Software',
-                knowsAbout: [
-                  'gym management',
-                  'fitness studio software',
-                  'yoga studio management',
-                  'dance studio software',
-                  'martial arts management',
-                ],
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'FAQPage',
-                mainEntity: [
-                  {
-                    '@type': 'Question',
-                    name: 'What is KurlClub gym management software?',
-                    acceptedAnswer: {
-                      '@type': 'Answer',
-                      text: 'KurlClub is a comprehensive gym management software designed for fitness centers, gyms, yoga studios, dance classes, and martial arts centers in India and GCC. It offers member management, NFC attendance tracking, automated billing, trainer management, and a mobile app for seamless gym operations.',
-                    },
-                  },
-                  {
-                    '@type': 'Question',
-                    name: 'Does KurlClub work for yoga studios and dance classes?',
-                    acceptedAnswer: {
-                      '@type': 'Answer',
-                      text: 'Yes! KurlClub is perfect for all types of fitness businesses including yoga studios, dance classes, Zumba centers, martial arts dojos, boxing clubs, and traditional gyms. Our platform is designed to handle the unique needs of different fitness studio types with customizable features.',
-                    },
-                  },
-                ],
-              },
-            ]),
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5J4836WX');
+            `,
           }}
         />
       </head>
