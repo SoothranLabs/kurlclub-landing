@@ -110,6 +110,11 @@ export default function RootLayout({
     gtag('config', 'G-NKR6LT05KK');
   `}
 </Script>
+      <Script
+        src="https://darkvisitors.com/tracker.js?project_key=fcf9a74b-57ed-4556-9e33-eb41d35d319c"
+        strategy="afterInteractive"
+        async
+      />
 <Script
           id="gtm-script"
           strategy="afterInteractive"
